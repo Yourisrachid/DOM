@@ -1,4 +1,4 @@
-let learner = ['Iliess Abdelmadjid', 'Maryam Akraiche', 'Nathanaël Amand', 'Zahra Anaflous', 'Admin Becode', 'Dorian Blariau', 'Adrien Boels', 'Jean-Emmanuel Carenjot', 'Adrien Caufriez', 'Caroline Deconinck', 'Tom Delinte', 'Stacy Druart', 'Dylan Feys', 'Justine Frigo', 'Mohamed Kamal', 'Lyne Kapongo Tshilumbwa', 'Dzheylyan Kyamilova', 'Ludovic Lacroix', 'Justine Lambert', 'Denis Lettany', 'Jordan Masy', 'Nataliia Melnykova', 'Angel Nittelet', 'Pierre Noël', 'Isabelle Noël', 'Youris Rachid', 'Giovanni Tummino', 'Arnaud Van Acker', 'Julie Wustefeld'];
+let learner = ['Iliess Abdelmadjid', 'Maryam Akraiche', 'Nathanaël Amand', 'Zahra Anaflous', 'Dorian Blariau', 'Adrien Boels', 'Jean-Emmanuel Carenjot', 'Adrien Caufriez', 'Caroline Deconinck', 'Tom Delinte', 'Stacy Druart', 'Dylan Feys', 'Justine Frigo', 'Mohamed Kamal', 'Lyne Kapongo Tshilumbwa', 'Dzheylyan Kyamilova', 'Ludovic Lacroix', 'Justine Lambert', 'Denis Lettany', 'Jordan Masy', 'Nataliia Melnykova', 'Angel Nittelet', 'Pierre Noël', 'Isabelle Noël', 'Youris Rachid', 'Giovanni Tummino', 'Arnaud Van Acker', 'Julie Wustefeld'];
 let article = document.querySelector('article');
 
 function randomColor() {
@@ -20,4 +20,22 @@ for (i=0; i < learner.length; i++) {
 
     section.appendChild(para);
     article.appendChild(section);
+
+    let style = window.getComputedStyle(section);
+    let bgColor = style.backgroundColor;
+    let rgb = bgColor.match(/\d+/g);
+
+    let rgbNum = rgb.map(function(item) {
+        return parseInt(item, 10);
+    })
+    let sum=0;
+
+
+    for (j=0; j < rgb.length; j++) {
+        sum += rgbNum[j];
+    }
+    
+    if (sum < 384) {
+        section.style.color = 'white';
+    }
 }
